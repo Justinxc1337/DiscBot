@@ -39,7 +39,16 @@ client.on('messageCreate', (message) => {
     }
 });
 
-
+client.on('messageCreate', (message) => {
+    const tiktokLink = message.content.match(/(http(s)?:\/\/)?([w]{3}.)?tiktok\.com\/[^\s]*/);
+    if (tiktokLink) {
+        const embed = new MessageEmbed()
+            .setTitle('TikTok Video')
+            .setURL(tiktokLink[0])
+            .setDescription(`TikTok link shared: ${tiktokLink[0]}`);
+        message.channel.send({ embeds: [embed] });
+    }
+});
 
 
 /* client.on('messageCreate', (message) => {
@@ -53,7 +62,7 @@ client.on('messageCreate', (message) => {
     }
 }); */
 
-client.login('MTIwODE3Nzc0NjcxNTYxMTIxNg.GFqTn-.lnKY2kd30D35DWo1knmzGbplNiBm35KXlOw8L4');
+client.login('MTIwODE3Nzc0NjcxNTYxMTIxNg.GepRht.ybDFzts606RSO9wiTL1vCyVufdN4MZOU_Szz_c');
 
 
 
